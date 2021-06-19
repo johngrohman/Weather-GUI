@@ -18,10 +18,6 @@ def get_weather(city):
     weather = response.json()
     print(weather)
 
-    city_label['text'] = weather['name']
-    current_temp['text'] = weather['main']['temp']
-    high_low['text'] = str(weather['main']['temp_max']) + ' / ' + str(weather['main']['temp_min'])
-
 root = tk.Tk()
 
 canvas = tk.Canvas(root, height = CANVAS_HEIGHT, width = CANVAS_WIDTH, bg = '#f9f7f7')
@@ -31,9 +27,10 @@ canvas.pack()
 date_frame = tk.Frame(root, bg = '#dbe2ef', bd = 5)
 date_frame.place(relx = 0.05, rely = 0.05, relwidth = 0.9, relheight = 0.1)
 
+entry = tk.Entry(date_frame, font = 40, bg = '#f9f7f7', bd = 0, state = 'normal')
+entry.place(relheight = 1, relwidth = .8)
 
-go_button = tk.Button(root, bd = 0, text = "Go", bg = '#dbe2ef', command = lambda: get_weather(entry.get()))
-go_button.place(relx = .82, relwidth = .16, rely = .1)
-
+go_button = tk.Button(date_frame, bd = 0, text = "Search", bg = '#dbe2ef', command = lambda: get_weather(entry.get()))
+go_button.place(relx = .5, relwidth = .16, rely = 0)
 
 root.mainloop()
