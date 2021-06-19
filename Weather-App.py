@@ -27,4 +27,13 @@ root = tk.Tk()
 canvas = tk.Canvas(root, height = CANVAS_HEIGHT, width = CANVAS_WIDTH, bg = '#f9f7f7')
 canvas.pack()
 
+# Date
+date_frame = tk.Frame(root, bg = '#dbe2ef', bd = 5)
+date_frame.place(relx = 0.05, rely = 0.05, relwidth = 0.9, relheight = 0.1)
+
+
+go_button = tk.Button(root, bd = 0, text = "Go", bg = '#dbe2ef', command = lambda: get_weather(entry.get()))
+go_button.place(relx = .82, relwidth = .16, rely = .1)
+
+
 root.mainloop()
