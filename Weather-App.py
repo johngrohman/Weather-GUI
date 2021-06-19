@@ -1,10 +1,10 @@
-import tikinter as tk
+import tkinter as tk
 import requests
 from datetime import date
 import tkinter.font
 
-CANVAS_HEIGHT = 700
-CANVAS_WIDTH = 1200
+CANVAS_HEIGHT = 500
+CANVAS_WIDTH = 500
 
 today = date.today()
 
@@ -22,3 +22,9 @@ def get_weather(city):
     current_temp['text'] = weather['main']['temp']
     high_low['text'] = str(weather['main']['temp_max']) + ' / ' + str(weather['main']['temp_min'])
 
+root = tk.Tk()
+
+canvas = tk.Canvas(root, height = CANVAS_HEIGHT, width = CANVAS_WIDTH, bg = '#f9f7f7')
+canvas.pack()
+
+root.mainloop()
