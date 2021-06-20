@@ -18,6 +18,13 @@ def get_weather(city):
     weather = response.json()
     print(weather)
 
+    if weather.get('message') == 'city not found':
+        city_label = 'Unknown'
+    else:
+        city_label = weather.get('name')
+
+    print('city_label: ', city_label)
+
 root = tk.Tk()
 
 canvas = tk.Canvas(root, height = CANVAS_HEIGHT, width = CANVAS_WIDTH, bg = '#f9f7f7')
