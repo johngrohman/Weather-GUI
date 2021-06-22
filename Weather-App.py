@@ -1,7 +1,9 @@
+#!/usr/bin/python
+
 import tkinter as tk
 import requests
 from datetime import date
-import tkinter.font
+from Converter import converter_function
 
 CANVAS_HEIGHT = 500
 CANVAS_WIDTH = 500
@@ -9,6 +11,20 @@ CANVAS_WIDTH = 500
 today = date.today()
 
 current_date = today.strftime('%B %d, %Y')
+
+class City_Weather:
+    def __init__(self, name: str, units, temp: int):
+        self.name = name
+        self.units = units
+        self.temp = temp
+
+    def convert_units(unit: str):
+        if unit == 'F':
+            self.units = 'F'
+        else:
+            self.units = 'C'
+        converter_function(self.temp, self.units)
+
 
 def get_weather(city):
     weather_key = ''
@@ -23,21 +39,25 @@ def get_weather(city):
     else:
         city_label = weather.get('name')
 
+        city = City_Weather(weather.get('name'))
+
     print('city_label: ', city_label)
+
+
 
 root = tk.Tk()
 
 canvas = tk.Canvas(root, height = CANVAS_HEIGHT, width = CANVAS_WIDTH, bg = '#f9f7f7')
 canvas.pack()
 
-# Date
-date_frame = tk.Frame(root, bg = '#dbe2ef', bd = 5)
-date_frame.place(relx = 0.05, rely = 0.05, relwidth = 0.9, relheight = 0.1)
+# Search Bar
+search_frame = tk.Frame(root, bg = 'red', bd = 5)
+search_frame.place(relx = 0.45, rely = 0.05, relwidth = 0.5, relheight = 0.1)
 
-entry = tk.Entry(date_frame, font = 40, bg = '#f9f7f7', bd = 0, state = 'normal')
-entry.place(relheight = 1, relwidth = .8)
+entry = tk.Entry(search_frame, font = 40, bg = 'green', bd = 0, state = 'normal')
+entry.place(relheight = 1, relwidth = .7)
 
-go_button = tk.Button(date_frame, bd = 0, text = "Search", bg = '#dbe2ef', command = lambda: get_weather(entry.get()))
-go_button.place(relx = .5, relwidth = .16, rely = 0)
+search = tk.Button(search_frame, bd = 0, text = "Search", bg = 'blue', command = lambda: get_weather(entry.get()))
+search.place(relx = .7, relwidth = .3, relheight = .9, rely = .05)
 
 root.mainloop()
