@@ -9,4 +9,5 @@ def converter_function(number, unit_to_convert_to: str):
     elif unit_to_convert_to == 'C':
         number = (number - 32) * (5/9)
     else:
-        return ('Invalid Unit')
+        return ('Invalid unit')
+    return int(number)
