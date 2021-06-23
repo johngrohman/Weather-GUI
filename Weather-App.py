@@ -13,18 +13,16 @@ today = date.today()
 current_date = today.strftime('%B %d, %Y')
 
 class City_Weather:
-    def __init__(self, name: str, units, temp: int):
+    def __init__(self, name: str, temp: int):
         self.name = name
-        self.units = units
         self.temp = temp
 
-    def convert_units(unit: str):
+    def convert_units(self, unit: str):
         if unit == 'F':
             self.units = 'F'
         else:
             self.units = 'C'
-        converter_function(self.temp, self.units)
-
+        self.temp = converter_function(self.temp, unit)
 
 def get_weather(city):
     weather_key = ''
@@ -60,4 +58,4 @@ entry.place(relheight = 1, relwidth = .7)
 search = tk.Button(search_frame, bd = 0, text = "Search", bg = 'blue', command = lambda: get_weather(entry.get()))
 search.place(relx = .7, relwidth = .3, relheight = .9, rely = .05)
 
-root.mainloop()
+# root.mainloop()
