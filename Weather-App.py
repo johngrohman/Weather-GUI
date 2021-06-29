@@ -39,18 +39,18 @@ class City:
             self.units = 'F'
 
         self.current_temp = converter_function(self.current_temp, self.units)
-        current_temp = tk.Label(left_frame, bg = '#D8973C', text = 'Current \nTemperature: \n' + str(int(self.current_temp))+ '°' + self.units)
+        current_temp = tk.Label(left_frame, bg = '#54416d', text = 'Current \nTemperature: \n' + str(int(self.current_temp))+ '°' + self.units)
         current_temp.place(relx = .01, relwidth = .98, relheight = .45, rely = .01)
         current_temp.config(font = ('Helvetica', 30))
 
         self.high = converter_function(self.high, self.units)
-        high = tk.Label(right_frame, bg = '#D8973C', text = 'High: ' + str(int(self.high))+ '°' + self.units)
-        high.place(relx = .01, relwidth = .98, relheight = .20, rely = .01)
+        high = tk.Label(right_frame, bg = '#54416d', text = 'High: ' + str(int(self.high))+ '°' + self.units)
+        high.place(relx = .01, relwidth = .98, relheight = .215, rely = .01)
         high.config(font = ('Helvetica', 20))
 
         self.low = converter_function(self.low, self.units)
-        low = tk.Label(right_frame, bg = '#D8973C', text = 'Low: ' + str(int(self.low))+ '°' + self.units)
-        low.place(relx = .01, relwidth = .98, relheight = .20, rely = .24)
+        low = tk.Label(right_frame, bg = '#54416d', text = 'Low: ' + str(int(self.low))+ '°' + self.units)
+        low.place(relx = .01, relwidth = .98, relheight = .215, rely = .245)
         low.config(font = ('Helvetica', 20))
 
 def get_weather(city, units):
@@ -83,63 +83,63 @@ def get_weather(city, units):
 
 root = tk.Tk()
 
-canvas = tk.Canvas(root, height = CANVAS_HEIGHT, width = CANVAS_WIDTH, bg = '#D8C99B')
+canvas = tk.Canvas(root, height = CANVAS_HEIGHT, width = CANVAS_WIDTH, bg = '#75b4e3')
 canvas.pack()
 
 # Top Bar
-top_frame = tk.Frame(root, bg = '#A4243B', bd = 5)
+top_frame = tk.Frame(root, bg = '#54416d', bd = 5)
 top_frame.place(relx = 0.05, rely = 0.05, relwidth = 0.9, relheight = 0.1)
 
-city_label = tk.Label(top_frame, text = 'City', bg = '#A4243B')
+city_label = tk.Label(top_frame, text = 'City', bg = '#54416d')
 city_label.place(relx = .1, relwidth = .4, relheight = 1, rely = .1)
 city_label.config(font=('Helvetica', 30))
 
-entry = tk.Entry(top_frame, font = 40, bg = '#A4243B', bd = 0, state = 'normal')
+entry = tk.Entry(top_frame, font = 40, bg = '#ffffff', bd = 0, state = 'normal')
 entry.place(relx = .5, relheight = 1, relwidth = .3)
 
 search = tk.Button(top_frame, bd = 0, text = "Search", command = lambda: get_weather(entry.get(), 'F'))
 search.place(relx = .825, relwidth = .15, relheight = .9, rely = .05)
 
 # Left Block
-left_frame = tk.Frame(root, bg = '#A4243B', bd = 5)
+left_frame = tk.Frame(root, bg = '#2b235a', bd = 5)
 left_frame.place(relx = 0.05, rely = .19, relwidth = .445, relheight = .75)
 
 # Current temp
-current_temp = tk.Label(left_frame, bg = '#D8973C', text = 'Current \nTemperature: \n')
+current_temp = tk.Label(left_frame, bg = '#54416d', text = 'Current \nTemperature: \n')
 current_temp.place(relx = .01, relwidth = .98, relheight = .45, rely = .01)
 current_temp.config(font = ('Helvetica', 30))
 
 # Description
-description = tk.Label(left_frame, bg = '#D8973C', text = 'Description: \n')
+description = tk.Label(left_frame, bg = '#54416d', text = 'Description: \n')
 description.place(relx = .01, relwidth = .98, relheight = .25, rely = .48)
 description.config(font = ('Helvetica', 20))
 # Wind Speed
-wind_speed = tk.Label(left_frame, bg = '#D8973C', text = 'Wind Speed: ')
+wind_speed = tk.Label(left_frame, bg = '#54416d', text = 'Wind Speed: ')
 wind_speed.place(relx = .01, relwidth = .98, relheight = .25, rely = .75)
 wind_speed.config(font = ('Helvetica', 20))
 
 
 # Right Block
-right_frame = tk.Frame(root, bg = '#A4243B', bd = 5)
+right_frame = tk.Frame(root, bg = '#2b235a', bd = 5)
 right_frame.place (relx = .525, rely = .19, relwidth = .425, relheight = .75)
 
 # High
-high = tk.Label(right_frame, bg = '#D8973C', text = 'High: ')
-high.place(relx = .01, relwidth = .98, relheight = .20, rely = .01)
+high = tk.Label(right_frame, bg = '#54416d', text = 'High: ')
+high.place(relx = .01, relwidth = .98, relheight = .215, rely = .01)
 high.config(font = ('Helvetica', 20))
 
 # Low
-low = tk.Label(right_frame, bg = '#D8973C', text = 'Low: ')
-low.place(relx = .01, relwidth = .98, relheight = .20, rely = .24)
+low = tk.Label(right_frame, bg = '#54416d', text = 'Low: ')
+low.place(relx = .01, relwidth = .98, relheight = .215, rely = .245)
 low.config(font = ('Helvetica', 20))
 
 # Pressure
-pressure = tk.Label(right_frame, bg = '#D8973C', text = 'Pressure: \n')
+pressure = tk.Label(right_frame, bg = '#54416d', text = 'Pressure: \n')
 pressure.place(relx = .01, relwidth = .98, relheight = .25, rely = .48)
 pressure.config(font = ('Helvetica', 20))
 
 # Humidity
-humidity = tk.Label(right_frame, bg = '#D8973C', text = 'Humidity: \n')
+humidity = tk.Label(right_frame, bg = '#54416d', text = 'Humidity: \n')
 humidity.place(relx = .01, relwidth = .98, relheight = .25, rely = .75)
 humidity.config(font = ('Helvetica', 20))
 
