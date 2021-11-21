@@ -3,6 +3,7 @@
 def converter_function(number, unit_to_convert_to: str):
     '''
     Function that can convert fahrenheit to celcius vice versa.
+    Returns int
     '''
     if unit_to_convert_to == 'F':
         number = (number * 9/5) + 32
@@ -10,4 +11,4 @@ def converter_function(number, unit_to_convert_to: str):
         number = (number - 32) * (5/9)
     else:
         return ('Invalid unit')
-    return int(number)
+    return number
